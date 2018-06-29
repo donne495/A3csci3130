@@ -33,7 +33,7 @@ public class CRUDTest {
         onView(withId(R.id.businessNumber)).perform(typeText("123456789"), closeSoftKeyboard());
         onView(withId(R.id.name)).perform(typeText("Bob's Swordfish Emporium"), closeSoftKeyboard());
         onView(withId(R.id.primaryBusiness)).perform(click());
-        onData(allOf(is(instanceOf(String.class)), is("Fish Monger"))).perform(click());
+        onData(allOf(is(instanceOf(String.class)), is("Distributor"))).perform(click());
         onView(withId(R.id.address)).perform(typeText("10 Ocean Lane"), closeSoftKeyboard());
         onView(withId(R.id.province)).perform(click());
         onData(allOf(is(instanceOf(String.class)), is("NL"))).perform(click());
@@ -54,7 +54,7 @@ public class CRUDTest {
     }
 
     @Test
-    public void testDelete(){
+    public void testDelete() {
 
         onData(anything()).inAdapterView(withId(R.id.listView)).atPosition(0).
                 check(matches(withText("Bob's Swordfish Emporium")));

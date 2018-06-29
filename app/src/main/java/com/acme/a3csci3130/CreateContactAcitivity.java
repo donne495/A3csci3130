@@ -11,8 +11,8 @@ import android.widget.Spinner;
 public class CreateContactAcitivity extends Activity {
 
     private Button submitButton;
-    private EditText bNField, nameField, addressField;
-    private Spinner pBField, provinceField;
+    private EditText businessNumField, nameField, addressField;
+    private Spinner primaryBusinessField, provinceField;
     private MyApplicationData appState;
 
     @Override
@@ -34,9 +34,9 @@ public class CreateContactAcitivity extends Activity {
         provSpinner.setAdapter(provAdapter);
 
         submitButton = (Button) findViewById(R.id.submitButton);
-        bNField = (EditText) findViewById(R.id.businessNumber);
+        businessNumField = (EditText) findViewById(R.id.businessNumber);
         nameField = (EditText) findViewById(R.id.name);
-        pBField = (Spinner) findViewById(R.id.primaryBusiness);
+        primaryBusinessField = (Spinner) findViewById(R.id.primaryBusiness);
         addressField = (EditText) findViewById(R.id.address);
         provinceField = (Spinner) findViewById(R.id.province);
     }
@@ -44,9 +44,9 @@ public class CreateContactAcitivity extends Activity {
     public void submitInfoButton(View v) {
         //each entry needs a unique ID
         String personID = appState.firebaseReference.push().getKey();
-        String businessNum = bNField.getText().toString();
+        String businessNum = businessNumField.getText().toString();
         String name = nameField.getText().toString();
-        String primaryBusiness = pBField.getSelectedItem().toString();
+        String primaryBusiness = primaryBusinessField.getSelectedItem().toString();
         String address = addressField.getText().toString();
         String province = provinceField.getSelectedItem().toString();
 

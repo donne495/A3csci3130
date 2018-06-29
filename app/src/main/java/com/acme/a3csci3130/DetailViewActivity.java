@@ -9,8 +9,8 @@ import android.widget.Spinner;
 
 public class DetailViewActivity extends Activity {
 
-    private EditText bNumField, nameField, addressField;
-    private Spinner pBField, provinceField;
+    private EditText businessNumField, nameField, addressField;
+    private Spinner primaryBusinessField, provinceField;
     private MyApplicationData appState;
     Contact receivedPersonInfo;
 
@@ -32,9 +32,9 @@ public class DetailViewActivity extends Activity {
         provAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         provSpinner.setAdapter(provAdapter);
 
-        bNumField = (EditText) findViewById(R.id.businessNumber);
+        businessNumField = (EditText) findViewById(R.id.businessNumber);
         nameField = (EditText) findViewById(R.id.name);
-        pBField = (Spinner) findViewById(R.id.primaryBusiness);
+        primaryBusinessField = (Spinner) findViewById(R.id.primaryBusiness);
         addressField = (EditText) findViewById(R.id.address);
         provinceField = (Spinner) findViewById(R.id.province);
 
@@ -42,9 +42,9 @@ public class DetailViewActivity extends Activity {
             int pBNum = matchPrimarySelection(receivedPersonInfo.primaryBusiness);
             int provinceNum = matchProvinceSelection(receivedPersonInfo.province);
 
-            bNumField.setText(receivedPersonInfo.businessNumber);
+            businessNumField.setText(receivedPersonInfo.businessNumber);
             nameField.setText(receivedPersonInfo.name);
-            pBField.setSelection(pBNum);
+            primaryBusinessField.setSelection(pBNum);
             addressField.setText(receivedPersonInfo.address);
             provinceField.setSelection(provinceNum);
         }
@@ -52,9 +52,9 @@ public class DetailViewActivity extends Activity {
 
     public void updateContact(View v){
         String existingID = receivedPersonInfo.uid;
-        String businessNum = bNumField.getText().toString();
+        String businessNum = businessNumField.getText().toString();
         String name = nameField.getText().toString();
-        String primaryBusiness = pBField.getSelectedItem().toString();
+        String primaryBusiness = primaryBusinessField.getSelectedItem().toString();
         String address = addressField.getText().toString();
         String province = provinceField.getSelectedItem().toString();
 
